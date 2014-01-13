@@ -6,21 +6,37 @@ import java.util.List;
 public abstract class Product {
     
     private List<Extra> extras = new ArrayList<>();
-    private int happiness = 0;
+    public HappinessIncrease happinessIncrease;
     
-    public void recalculateHappiness() {
+    private HappinessIncrease recalculateHappinessUsingExtras() {
+        HappinessIncrease answer = happinessIncrease;
         for (Extra extra : extras) {
-            happiness = extra.recalculateHappiness(happiness);
+            answer = extra.recalculateHappinessIncrease(answer);
         }
+        return answer;
     }
     
     public void addExtra(Extra extra) {
         extras.add(extra);
     }
-    
-    public int getHappiness() {
-        recalculateHappiness();
-        return happiness;
+
+    public List<Extra> getExtras() {
+        return extras;
     }
 
+    public float getHappiness(float original) {
+        HappinessIncrease newHappinessIncrease = recalculateHappinessUsingExtras();
+        float answer = 0;
+        switch(newHappinessIncrease.getIncreaseType()){
+            case ADD:
+            answer = original + newHappinessIncrease.getIncrease();
+            break;
+            case MULTIPLY:
+            answer =  original * (1+newHappinessIncrease.getIncrease()/100);
+            break;
+        }
+        return answer;
+    }
+    
+    public abstract String getName();
 }

@@ -13,16 +13,8 @@ public class HappinessIncrease {
     public float getIncrease() {
         return increase;
     }
-    public void setIncrease(float increase) {
-        this.increase = increase;
-    }
     public IncreaseType getIncreaseType() {
         return increaseType;
-    }
-    public void setIncreaseType(IncreaseType increaseType) {
-        this.increaseType = increaseType;
-    }
-    
-    
+    }   
 
 }

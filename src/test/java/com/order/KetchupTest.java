@@ -27,10 +27,10 @@ public class KetchupTest {
         //Given
         HappinessIncrease happinessIncrease = new HappinessIncrease(5, IncreaseType.MULTIPLY);
         //When
-        underTest.recalculateHappinessIncrease(happinessIncrease);
+        HappinessIncrease newHappinessIncrease = underTest.recalculateHappinessIncrease(happinessIncrease);
         //Then
-        Assert.assertEquals(10.0f, happinessIncrease.getIncrease());
-        Assert.assertEquals(IncreaseType.MULTIPLY, happinessIncrease.getIncreaseType());
+        Assert.assertEquals(10.0f, newHappinessIncrease.getIncrease());
+        Assert.assertEquals(IncreaseType.MULTIPLY, newHappinessIncrease.getIncreaseType());
     }
     
     @Test
@@ -38,10 +38,10 @@ public class KetchupTest {
         //Given
         HappinessIncrease happinessIncrease = new HappinessIncrease(2, IncreaseType.ADD);
         //When
-        underTest.recalculateHappinessIncrease(happinessIncrease);
+        HappinessIncrease newHappinessIncrease = underTest.recalculateHappinessIncrease(happinessIncrease);
         //Then
-        Assert.assertEquals(4.0f, happinessIncrease.getIncrease());
-        Assert.assertEquals(IncreaseType.ADD, happinessIncrease.getIncreaseType());
+        Assert.assertEquals(4.0f, newHappinessIncrease.getIncrease());
+        Assert.assertEquals(IncreaseType.ADD, newHappinessIncrease.getIncreaseType());
     }
 
 }

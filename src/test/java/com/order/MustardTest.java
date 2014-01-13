@@ -27,10 +27,10 @@ public class MustardTest {
         //Given
         HappinessIncrease happinessIncrease = new HappinessIncrease(5, IncreaseType.MULTIPLY);
         //When
-        underTest.recalculateHappinessIncrease(happinessIncrease);
+        HappinessIncrease newHappinessIncrease = underTest.recalculateHappinessIncrease(happinessIncrease);
         //Then
-        Assert.assertEquals(1.0f, happinessIncrease.getIncrease());
-        Assert.assertEquals(IncreaseType.ADD, happinessIncrease.getIncreaseType());
+        Assert.assertEquals(1.0f, newHappinessIncrease.getIncrease());
+        Assert.assertEquals(IncreaseType.ADD, newHappinessIncrease.getIncreaseType());
     }
     
     @Test
@@ -38,10 +38,10 @@ public class MustardTest {
         //Given
         HappinessIncrease happinessIncrease = new HappinessIncrease(2, IncreaseType.ADD);
         //When
-        underTest.recalculateHappinessIncrease(happinessIncrease);
+        HappinessIncrease newHappinessIncrease = underTest.recalculateHappinessIncrease(happinessIncrease);
         //Then
-        Assert.assertEquals(1.0f, happinessIncrease.getIncrease());
-        Assert.assertEquals(IncreaseType.ADD, happinessIncrease.getIncreaseType());
+        Assert.assertEquals(1.0f, newHappinessIncrease.getIncrease());
+        Assert.assertEquals(IncreaseType.ADD, newHappinessIncrease.getIncreaseType());
     }
 
 }
