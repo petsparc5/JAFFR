@@ -3,11 +3,19 @@ package com.order;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.people.Cashier;
+
 public class OrderBuilder {
     
     private List<Product> order = new ArrayList<>();
     private float price = 0;
-    
+    private Cashier cashier;
+
+    public OrderBuilder(Cashier cashier) {
+        super();
+        this.cashier = cashier;
+    }
+
     public OrderBuilder addProduct(Product product) {
         order.add(product);
         price += product.getPrice();
@@ -15,7 +23,7 @@ public class OrderBuilder {
     }
 
     public Order getOrder() {
-        return new Order(order, price);
+        return new Order(order, price, cashier);
     }
     
     public OrderBuilder implementDiscount(float percentage) {
