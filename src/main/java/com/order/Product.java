@@ -5,6 +5,7 @@ import java.util.List;
 
 public abstract class Product {
     
+    public float price;
     private List<Extra> extras = new ArrayList<>();
     public HappinessIncrease happinessIncrease;
     
@@ -18,6 +19,14 @@ public abstract class Product {
     
     public void addExtra(Extra extra) {
         extras.add(extra);
+    }
+    
+    public float getPrice() {
+        float answer = price;
+        for (Extra extra : extras) {
+            answer += extra.getPrice();
+        }
+        return answer;
     }
 
     public List<Extra> getExtras() {

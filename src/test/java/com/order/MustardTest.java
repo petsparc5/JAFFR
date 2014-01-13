@@ -18,8 +18,10 @@ public class MustardTest {
         //Given
         //When
         String actualAnswer = underTest.getName();
+        float actualPrice = underTest.getPrice();
         //Then
         Assert.assertEquals("Mustard", actualAnswer);
+        Assert.assertEquals(0.75f, actualPrice);
     }
     
     @Test

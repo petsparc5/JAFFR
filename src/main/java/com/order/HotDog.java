@@ -8,6 +8,7 @@ public class HotDog extends Product {
         super();
         this.happinessIncrease = new HappinessIncrease(2f, IncreaseType.ADD);
         this.name = "HotDog";
+        this.price = 2.99f;
     }
 
     @Override

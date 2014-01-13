@@ -14,6 +14,26 @@ public class HotDogTest {
     }
     
     @Test
+    public void testGetPrice() {
+        //Given
+        //When
+        float actual = underTest.getPrice();
+        //Then
+        Assert.assertEquals(2.99f, actual);
+    }
+    
+    @Test
+    public void testGetPriceWithExtras() {
+        //Given
+        Extra extra1 = new Mustard();
+        underTest.addExtra(extra1);
+        //When
+        float actual = underTest.getPrice();
+        //Then
+        Assert.assertEquals(3.74f, actual);
+    }
+    
+    @Test
     public void testRecalculateHappiness() {
         //Given
         //When

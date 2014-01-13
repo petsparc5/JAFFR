@@ -18,8 +18,10 @@ public class KetchupTest {
         //Given
         //When
         String actualAnswer = underTest.getName();
+        float actualPrice = underTest.getPrice();
         //Then
         Assert.assertEquals("Ketchup", actualAnswer);
+        Assert.assertEquals(0.25f, actualPrice);
     }
     
     @Test

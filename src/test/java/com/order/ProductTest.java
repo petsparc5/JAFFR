@@ -32,6 +32,28 @@ public class ProductTest {
     }
     
     @Test
+    public void testGetPrice() {
+        //Given
+        //When
+        float actual = underTest.getPrice();
+        //Then
+        Assert.assertEquals(50.0f, actual);
+    }
+    
+    @Test
+    public void testGetPriceWithExtras() {
+        //Given
+        Extra extra1 = new Ketchup();
+        Extra extra2 = new Mustard();
+        underTest.addExtra(extra1);
+        underTest.addExtra(extra2);
+        //When
+        float actual = underTest.getPrice();
+        //Then
+        Assert.assertEquals(51.0f, actual);
+    }
+    
+    @Test
     public void testGetHappiness() {
         //Given
         Extra extra1 = new Ketchup();
