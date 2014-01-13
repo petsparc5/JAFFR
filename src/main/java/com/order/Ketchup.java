@@ -14,8 +14,8 @@ public class Ketchup implements Extra {
     }
 
     @Override
-    public int recalculateHappiness(int original) {
-        return original * 2;
+    public void recalculateHappinessIncrease(HappinessIncrease happinessIncrease) {
+        happinessIncrease.setIncrease(happinessIncrease.getIncrease() * 2);
     }
 
 }

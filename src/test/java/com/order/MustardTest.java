@@ -1,6 +1,5 @@
 package com.order;
 
-import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,12 +23,25 @@ public class MustardTest {
     }
     
     @Test
-    public void testRecalculateHappiness() {
+    public void testRecalculateHappinessIncreaseWithInitialMultiply() {
         //Given
+        HappinessIncrease happinessIncrease = new HappinessIncrease(5, IncreaseType.MULTIPLY);
         //When
-        int actualAnswer = underTest.recalculateHappiness(EasyMock.anyInt());
+        underTest.recalculateHappinessIncrease(happinessIncrease);
         //Then
-        Assert.assertEquals(1, actualAnswer);
+        Assert.assertEquals(1.0f, happinessIncrease.getIncrease());
+        Assert.assertEquals(IncreaseType.ADD, happinessIncrease.getIncreaseType());
+    }
+    
+    @Test
+    public void testRecalculateHappinessWithANonZeroHappinessLevel() {
+        //Given
+        HappinessIncrease happinessIncrease = new HappinessIncrease(2, IncreaseType.ADD);
+        //When
+        underTest.recalculateHappinessIncrease(happinessIncrease);
+        //Then
+        Assert.assertEquals(1.0f, happinessIncrease.getIncrease());
+        Assert.assertEquals(IncreaseType.ADD, happinessIncrease.getIncreaseType());
     }
 
 }

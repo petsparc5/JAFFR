@@ -14,8 +14,10 @@ public class Mustard implements Extra {
     }
 
     @Override
-    public int recalculateHappiness(int original) {
-        return 1;
+    public void recalculateHappinessIncrease(HappinessIncrease happinessIncrease) {
+        happinessIncrease.setIncrease(1);
+        happinessIncrease.setIncreaseType(IncreaseType.ADD);
+        
     }
 
 }

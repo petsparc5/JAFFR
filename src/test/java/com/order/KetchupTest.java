@@ -23,21 +23,25 @@ public class KetchupTest {
     }
     
     @Test
-    public void testRecalculateHappinessWithAZeroHappinessLevel() {
+    public void testRecalculateHappinessIncreaseWithInitialMultiply() {
         //Given
+        HappinessIncrease happinessIncrease = new HappinessIncrease(5, IncreaseType.MULTIPLY);
         //When
-        int actualAnswer = underTest.recalculateHappiness(0);
+        underTest.recalculateHappinessIncrease(happinessIncrease);
         //Then
-        Assert.assertEquals(0, actualAnswer);
+        Assert.assertEquals(10.0f, happinessIncrease.getIncrease());
+        Assert.assertEquals(IncreaseType.MULTIPLY, happinessIncrease.getIncreaseType());
     }
     
     @Test
     public void testRecalculateHappinessWithANonZeroHappinessLevel() {
         //Given
+        HappinessIncrease happinessIncrease = new HappinessIncrease(2, IncreaseType.ADD);
         //When
-        int actualAnswer = underTest.recalculateHappiness(20);
+        underTest.recalculateHappinessIncrease(happinessIncrease);
         //Then
-        Assert.assertEquals(40, actualAnswer);
+        Assert.assertEquals(4.0f, happinessIncrease.getIncrease());
+        Assert.assertEquals(IncreaseType.ADD, happinessIncrease.getIncreaseType());
     }
 
 }
