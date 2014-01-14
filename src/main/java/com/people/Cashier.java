@@ -10,15 +10,28 @@ public class Cashier {
     private Robot robot = Robot.getInstance();
     private Restaurant restaurant = Restaurant.getInstance();
 
+    public void acquireAndSetCashier(boolean available) {
+        if(available == true) {
+            Manager manager = restaurant.getManager();
+            manager.incrementNumberOfClients();
+        }
+        setAvailable(available);
+    }
+
+    public void recieveAnOrder(Order order) {
+        if(available == true) {
+            Manager manager = restaurant.getManager();
+            manager.incrementNumberOfOrders();
+        }
+        setOrder(order);
+        robot.addOrder(order);
+    }
+    
     public boolean isAvailable() {
         return available;
     }
 
     public void setAvailable(boolean available) {
-        if(available == true) {
-            Manager manager = restaurant.getManager();
-            manager.incrementNumberOfClients();
-        }
         this.available = available;
     }
 
@@ -27,10 +40,6 @@ public class Cashier {
     }
 
     public void setOrder(Order order) {
-        if(available == true) {
-            Manager manager = restaurant.getManager();
-            manager.incrementNumberOfOrders();
-        }
         this.order = order;
     }
     
@@ -44,6 +53,14 @@ public class Cashier {
 
     public boolean isOrderFinished() {
         return orderFinished;
+    }
+
+    public void setRobot(Robot robot) {
+        this.robot = robot;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
 }
