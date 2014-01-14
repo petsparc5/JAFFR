@@ -6,7 +6,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.people.Cashier;
+import com.order.product.HotDog;
+import com.order.product.Product;
+import com.restaurant.Cashier;
 
 public class OrderBuilderTest {
     

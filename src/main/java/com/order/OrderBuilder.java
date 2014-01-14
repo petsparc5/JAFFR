@@ -3,7 +3,8 @@ package com.order;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.people.Cashier;
+import com.order.product.Product;
+import com.restaurant.Cashier;
 
 public class OrderBuilder {
     

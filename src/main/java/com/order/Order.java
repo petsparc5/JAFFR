@@ -3,7 +3,9 @@ package com.order;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.people.Cashier;
+import com.order.extra.Extra;
+import com.order.product.Product;
+import com.restaurant.Cashier;
 
 public class Order {
     
@@ -28,6 +30,18 @@ public class Order {
 
     public Cashier getCashier() {
         return cashier;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (Product product : order) {
+            builder.append(" Product: ").append(product.getName()).append("%n");
+            for (Extra extra : product.getExtras()) {
+                builder.append(" Extra: ").append(extra.getName()).append("%n");
+            }
+        }
+        return builder.toString();
     }
     
     
